@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>prac 1</title>
+<style>
+    *{
+        font-size:60px;
+    }
+        body{
+        background-color: azure;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    h1,h2{
+        background-color: black;
+        border-radius: 15px;
+        color: white;
+
+    }
+</style>
+    
+</head>
+<body><center>
+<h1>Sum finder app</h1>
+<form onsubmit="compute()">
+    <input type="number" placeholder="enter a positive integer" id="num">
+    <input type="submit" value="M1">
+    <input type="submit" value="M2">
+    <input type="submit" value="M3">
+</form>
+<h2 id="msg"/>
+<script>
+    function compute()
+    {
+        event.preventDefault();
+        let num=document.getElementById("num");
+        let msg=document.getElementById("msg");
+        if(num.value==="")
+        {
+            alert("enter a number");
+            msg.innerHTML="";
+            num.focus();
+            return;
+        }
+        let n=parseInt(num.value);
+        if(n<0)
+        {
+            alert("enter a +ve number");
+            msg.innerHTML="";
+            num.focus();
+            return;
+        }
+        let action=document.activeElement.value;
+        let ans="";
+        if(action==="M1")
+        {
+            let i=1;
+            let sum=0;
+            while(i<=n){
+                sum=sum+i;
+                i=i+1;
+            }
+            msg.innerHTML = "M1 -> Sum is " + sum
+
+        }
+        else if(action==="M2")
+        {
+            let i=1;
+            let sum=0;
+            do{
+                sum=sum+i;
+                i=i+1;
+            }while(i<=n);
+            msg.innerHTML="M2-> "+sum;
+        }
+        else if(action==="M2")
+        {
+            let i=1;
+            let sum=0;
+            for(i;i<=n;i++)
+            {
+                sum=sum+i;
+            }
+            ans="sum is "+sum;
+            msg.innerHTML="M3-> "+ans;
+        }
+    }
+</script>
+
+</center>
+</body>
+</html>
